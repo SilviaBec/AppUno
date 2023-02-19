@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
             ),
       
             const TextField(
-            obscureText: true,
+            obscureText: false,
             decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Correo Electrónico',
