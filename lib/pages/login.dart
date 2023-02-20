@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginPage extends StatelessWidget {
   final _imageLoc= "assets/images/85.png";
@@ -45,30 +46,61 @@ class LoginPage extends StatelessWidget {
 
 
   Widget _form(){
-    return Column(children: [
-      const TextField(
-            obscureText: false,
-            decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Correo Electrónico',
-        ),
-      ),
+    final formKey = GlobalKey<FormState>();
+    return Form(
+      key:formKey,
+      child: Column(children: [
+        
+        _emailField(),
+        const SizedBox(height: 16,),
+        _passwordField(),
+      
+        
+        const SizedBox(height: 30,),
+        ElevatedButton(onPressed: (){}, child: const Text("Iniciar sesion"),),
+        
+        const SizedBox(height: 15,),
+      ],),
+    );
+  }
 
-      const SizedBox(height: 16,),
-      
-      const TextField(
-        obscureText: true,
-        decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: 'Contraseña',
-        ),
-      ),
-      
-      const SizedBox(height: 30,),
-      ElevatedButton(onPressed: (){}, child: const Text("Iniciar sesion"),),
-      
-      const SizedBox(height: 15,),
-    ],);
+  Widget _emailField(){
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      maxLength: 100,
+              obscureText: false,
+              decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Correo Electrónico',
+          ),
+          validator: (value){
+            if(value==null || value.isEmpty){
+              return "Este campo NO puede estar vacío";
+            } return null;
+          },
+        );
+
+  }
+
+  Widget _passwordField(){
+    return  TextFormField(
+      maxLength: 20,
+          obscureText: true,
+          decoration:const InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: 'Contraseña',
+          ),
+          validator:(value){
+              if(value==null || value.isEmpty){
+              return "Este campo es obligatorio";
+            } 
+            //esto se valida es en la ventana de registro
+            if(value.length<6){
+              return "La constraseña debe tener mas de 6 caracteres";
+            }
+            return null;
+          } ,
+        ); 
   }
 
 }
