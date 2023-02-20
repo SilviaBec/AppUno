@@ -46,7 +46,29 @@ class NewSalePage extends StatelessWidget {
                 labelText: 'Valor',
             ),
           ),
+          const SizedBox(
+            height: 17,
+          ),
 
+
+        const  TextField(
+                decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Numero cuotas',
+            ),
+          ),
+
+          const SizedBox(
+            height: 17,
+          ),
+
+        const  TextField(
+                decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Valor cuota',
+            ),
+          ),
+          // DropdownButton(items: [DropdownMenuItem(child: Text("Diario"))], onChanged: (value){}),
 
           const SizedBox(
             height: 20,

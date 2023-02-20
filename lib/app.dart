@@ -1,6 +1,7 @@
 import 'package:app_uno/pages/new_sale.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/login.dart';
 import 'pages/payments.dart';
 
 class MyApp extends StatelessWidget {
@@ -9,8 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-    title: "BusCAN",
-    home: NewSalePage(),
+    title: "BlueLeaf",
+    home: LoginPage(),
   );
   }
 }
