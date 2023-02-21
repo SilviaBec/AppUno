@@ -1,8 +1,8 @@
-import 'dart:js';
+// import 'dart:js';
 
 import 'package:app_uno/pages/payments.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 class LoginPage extends StatelessWidget {
   final _imageLoc= "assets/images/85.png";
@@ -86,7 +86,10 @@ class LoginPage extends StatelessWidget {
           validator: (value){
             if(value==null || value.isEmpty){
               return "Este campo NO puede estar vacío";
-            } return null;
+            } 
+            if(!value.contains("@") || !value.contains(".")){
+              return "Correo invalido";
+            }
           },
         );
 

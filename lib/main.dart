@@ -1,5 +1,5 @@
 import 'app.dart';
-import 'pages/payments.dart';
+// import 'pages/payments.dart';
 import 'package:flutter/material.dart';
 
 void main() {
