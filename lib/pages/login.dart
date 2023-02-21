@@ -1,3 +1,6 @@
+import 'dart:js';
+
+import 'package:app_uno/pages/payments.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,7 +17,7 @@ class LoginPage extends StatelessWidget {
           child: Column(children: <Widget>[
       
           _logo(),
-          _form(),
+          _form(context),
       
                   TextButton(onPressed: (){}, child: const Text("Registrarse"),),
                   TextButton(onPressed: (){}, child: const Text("Continuar sin cuenta"),),
@@ -45,7 +48,7 @@ class LoginPage extends StatelessWidget {
 
 
 
-  Widget _form(){
+  Widget _form(BuildContext context){
     final formKey = GlobalKey<FormState>();
     return Form(
       key:formKey,
@@ -57,7 +60,14 @@ class LoginPage extends StatelessWidget {
       
         
         const SizedBox(height: 30,),
-        ElevatedButton(onPressed: (){}, child: const Text("Iniciar sesion"),),
+        ElevatedButton(onPressed: (){
+          if(formKey.currentState!.validate()){
+            //Falta:hacer validacion de user y password en BD
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const PaymentsPage(),));
+          }
+        }, 
+        child: const Text("Iniciar sesion",
+        style:TextStyle(fontSize: 22)),),
         
         const SizedBox(height: 15,),
       ],),
