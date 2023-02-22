@@ -1,3 +1,5 @@
+import 'package:app_uno/pages/new_sale.dart';
+
 import '../widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -36,8 +38,23 @@ class PaymentsPage extends StatelessWidget {
       ],),
 
 
-  floatingActionButton: FloatingActionButton(child: const Icon(Icons.shopping_cart),onPressed: (){},),
+  floatingActionButton: FloatingActionButton(
+    child: const Icon(Icons.shopping_cart),
+    onPressed: (){
+      Navigator.push(context, 
+      MaterialPageRoute(builder: (context)=> const NewSalePage(),
+      ),
+      );
+    },),
 
+    );
+  }
+
+  List<String> _listarCobros(){
+    //Falta: Los cobros del dia pendientes en la base de dat.
+    return List<String>.generate( //quiero q genere un lista de elementso
+      10,//numero de elementos 
+      (index)=> "Usuario $index" //$concatena o reemplaza en la cadena y el indx pues es la variable 
     );
   }
 }
