@@ -8,32 +8,24 @@ class PaymentsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lista = _listarCobros();
     return Scaffold(
       appBar: AppBar(title:const Text( "Ventas"),),
       drawer: const DrawerWidget(),
       body:Column(children: [
         const Text ("Cobros"),
         Expanded(
-          child: ListView(
-            children: [
-              ListTile(
+          child: ListView.builder(
+            itemCount:lista.length,
+            itemBuilder: (context,index) => ListTile(
+                
                 leading: const CircleAvatar(),
-                title: const Text("Beatriz Pinzón"),
+                title: Text(lista[index]),
                 subtitle: const Text("Direccion"),
                 onTap: (){},
-              ),
-              const ListTile(
-                leading:  CircleAvatar(),
-                title: Text("Daniel Valencia"),
-                subtitle:  Text("Direccion"),
-              ),
-              const ListTile(
-                leading:  CircleAvatar(),
-                title: Text("Patricia Fernandez"),
-                subtitle:  Text("Direccion"),
-              )
-            ]
-          ),
+
+          ))
+
         )
       ],),
 
@@ -53,8 +45,8 @@ class PaymentsPage extends StatelessWidget {
   List<String> _listarCobros(){
     //Falta: Los cobros del dia pendientes en la base de dat.
     return List<String>.generate( //quiero q genere un lista de elementso
-      10,//numero de elementos 
-      (index)=> "Usuario $index" //$concatena o reemplaza en la cadena y el indx pues es la variable 
+      10,//numero de elementos a generar 
+      (index)=> "Usuario compra ${index+1}" //$concatena o reemplaza en la cadena y el indx pues es el parametro de esa lambda 
     );
   }
 }
