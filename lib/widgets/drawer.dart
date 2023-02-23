@@ -8,33 +8,53 @@ class DrawerWidget extends StatelessWidget {
     return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
-      children: const <Widget>[
+      children: <Widget>[
         DrawerHeader(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.blue,
           ),
-          child: Text(
-            'Drawer Header',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
+          child: _header(),
         ),
-        ListTile(
+        const ListTile  (
           leading: Icon(Icons.message),
           title: Text('Messages'),
         ),
-        ListTile(
+        const ListTile(
           leading: Icon(Icons.account_circle),
           title: Text('Profile'),
         ),
-        ListTile(
+        const ListTile(
           leading: Icon(Icons.settings),
           title: Text('Settings'),
         ),
       ],
     ),
   );
+  }
+
+  Widget _header(){
+    //Falta: consultar datos cabeza drawer
+    const  image = Icon(Icons.manage_accounts);
+    const  name = "Beatriz Pinzón";
+    const  email = "betty@email.com";
+    return Row(children:  [
+        const CircleAvatar (
+          radius: 35,
+          child: image,
+          ),
+
+        const SizedBox( 
+          width: 17,),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children:const [
+          Text(name, style:  TextStyle(color: Colors.white, fontSize:24),),
+          SizedBox(
+            height: 9,
+          ),
+          Text(email, style:  TextStyle(color: Colors.white),),
+        ],)
+      ],);
   }
 }
