@@ -1,3 +1,5 @@
+import '../pages/cashc.dart';
+import '../pages/payments.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -15,17 +17,30 @@ class DrawerWidget extends StatelessWidget {
           ),
           child: _header(),
         ),
-        const ListTile  (
-          leading: Icon(Icons.message),
-          title: Text('Messages'),
+        ListTile  (
+          leading: const Icon(Icons.message),
+          title: const Text('Cobros'),
+          onTap:(){
+            Navigator.pushReplacement(context, MaterialPageRoute(
+              builder: (context)=> const PaymentsPage(),));
+          },
         ),
-        const ListTile(
-          leading: Icon(Icons.account_circle),
-          title: Text('Profile'),
+        ListTile(
+          leading: const Icon(Icons.account_circle),
+          title: const Text('Ventas'),
+          onTap:(){},
         ),
-        const ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Settings'),
+        ListTile(
+          leading: const Icon(Icons.settings),
+          title: const Text('Clientes'),
+          onTap:(){},
+        ),
+        ListTile(
+          leading: const Icon(Icons.settings),
+          title: const Text('Cierre de caja'),
+          onTap:(){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const CashcPage()));
+          },
         ),
       ],
     ),
