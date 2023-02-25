@@ -1,4 +1,4 @@
-import 'package:app_uno/pages/new_sale.dart';
+import 'new_sale.dart';
 
 import '../widgets/drawer.dart';
 import 'package:flutter/material.dart';

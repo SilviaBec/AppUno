@@ -1,6 +1,6 @@
 // import 'dart:js';
 
-import 'package:app_uno/pages/payments.dart';
+import 'payments.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 

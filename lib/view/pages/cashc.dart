@@ -1,4 +1,4 @@
-import 'package:app_uno/widgets/drawer.dart';
+import 'package:app_uno/view/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class CashcPage extends StatelessWidget {
