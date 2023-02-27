@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
   //late String model;
 
   late LoginController _controller;
-  late LoginRequest model;
+  late LoginRequest _model;
 
   LoginPage({super.key}){
     _controller = LoginController();
@@ -74,6 +74,7 @@ class LoginPage extends StatelessWidget {
         const SizedBox(height: 30,),
         ElevatedButton(onPressed: (){
           if(formKey.currentState!.validate()){
+            formKey.currentState!.save();
             //Falta:hacer validacion de user y password en BD
             Navigator.push(context, MaterialPageRoute(builder: (context)=> const PaymentsPage(),));
           }
@@ -102,6 +103,10 @@ class LoginPage extends StatelessWidget {
             if(!value.contains("@") || !value.contains(".")){
               return "Correo invalido";
             }
+            return null;
+          },
+          onSaved: (value){
+            _model.correo = value!;
           },
         );
 
@@ -125,6 +130,9 @@ class LoginPage extends StatelessWidget {
             }
             return null;
           } ,
+          onSaved: (value){
+            _model.clave=value!;
+          },
         ); 
   }
 
