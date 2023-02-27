@@ -6,7 +6,11 @@ import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
   final _imageLoc= "assets/images/85.png";
-  const LoginPage({super.key});
+  //para creacion objetos bd, late es que la usare despues para no tener que inicializar ahi mismo
+  //le aviso que model no estara nulo que se hara despues y al inicializarla no es necesario borrarlo
+  late String model;
+
+  //const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
