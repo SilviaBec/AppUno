@@ -1,5 +1,8 @@
 // import 'dart:js';
 
+import '../../controller/login.dart';
+
+import '../../controller/request/login.dart';
 import 'payments.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
@@ -8,9 +11,14 @@ class LoginPage extends StatelessWidget {
   final _imageLoc= "assets/images/85.png";
   //para creacion objetos bd, late es que la usare despues para no tener que inicializar ahi mismo
   //le aviso que model no estara nulo que se hara despues y al inicializarla no es necesario borrarlo
-  late String model;
+  //late String model;
 
-  //const LoginPage({super.key});
+  late LoginController _controller;
+  late LoginRequest model;
+
+  LoginPage({super.key}){
+    _controller = LoginController();
+  }
 
   @override
   Widget build(BuildContext context) {

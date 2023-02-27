@@ -1,4 +1,5 @@
 class LoginRequest{
-  String? correo;
-  String? clave;
+  late String correo;
+  late String clave;
+
 }

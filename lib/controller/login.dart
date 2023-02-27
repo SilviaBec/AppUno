@@ -1,4 +1,7 @@
+// import 'package:app_uno/controller/request/login.dart';
+
 import '../model/repository/user.dart';
+import 'request/login.dart';
 
 class LoginController {
 
@@ -7,11 +10,11 @@ class LoginController {
   LoginController(){
     _userRepository = UserRepository();
   }
-  void validarCorreoClave(String correo,String clave){
+  void validarCorreoClave(LoginRequest request){
       //chek que el user tenga el correo que proporcionó
-      var user= _userRepository.findByEmail(correo);
+      var user= _userRepository.findByEmail(request.correo);
       //check if la clave es equal a la que esta en la BD
-      if(user.clave != clave){
+      if(user.clave != request.clave){
         throw Exception("Datos de ingreso invalidos");
       }
 
