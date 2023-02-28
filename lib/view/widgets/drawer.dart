@@ -3,7 +3,9 @@ import '../pages/payments.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  final String correo;
+  final String nombre;
+  const DrawerWidget({super.key,required this.correo, required this.nombre});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class DrawerWidget extends StatelessWidget {
           title: const Text('Cobros'),
           onTap:(){
             Navigator.pushReplacement(context, MaterialPageRoute(
-              builder: (context)=> const PaymentsPage(),));
+              builder: (context)=> PaymentsPage(correo:correo, nombre: nombre)));
           },
         ),
         ListTile(
@@ -50,8 +52,8 @@ class DrawerWidget extends StatelessWidget {
   Widget _header(){
     //Falta: consultar datos cabeza drawer
     const  image = Icon(Icons.manage_accounts);
-    const  name = "Beatriz Pinzón";
-    const  email = "betty@email.com";
+    // const  name = "Beatriz Pinzón";
+    // const  email = "betty@email.com";
     return Row(children:  [
         const CircleAvatar (
           radius: 35,
@@ -63,12 +65,12 @@ class DrawerWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
-          children:const [
-          Text(name, style:  TextStyle(color: Colors.white, fontSize:24),),
-          SizedBox(
+          children: [
+          Text(nombre, style:  const TextStyle(color: Colors.white, fontSize:24),),
+          const SizedBox(
             height: 9,
           ),
-          Text(email, style:  TextStyle(color: Colors.white),),
+          Text(correo, style:  const TextStyle(color: Colors.white),),
         ],)
       ],);
   }

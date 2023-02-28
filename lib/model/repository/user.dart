@@ -5,11 +5,11 @@ class UserRepository {
   final _users=<String, UserEntity>{};
 
   UserRepository(){
-    _users["beatriz@email.com"] = UserEntity(correo: "beatriz@email.com", nombre: "Beatriz pinzon", direccion: "calle 127 #58-60", telefono: "123245", clave: "4545",esAdmin: true
+    _users["beatriz@email.com"] = UserEntity(correo: "beatriz@email.com", nombre: "Beatriz pinzon", direccion: "calle 127 #58-60", telefono: "123245", clave: "123456",esAdmin: true
 
     );
 
-  _users["daniel@email.com"] = UserEntity(correo: "daniel@email.com", nombre: "Daniel Valencia", direccion: "calle 128 #59-61", telefono: "6789", clave: "555",esAdmin: false
+  _users["daniel@email.com"] = UserEntity(correo: "daniel@email.com", nombre: "Daniel Valencia", direccion: "calle 128 #59-61", telefono: "6789", clave: "234567",esAdmin: false
 
     );
 

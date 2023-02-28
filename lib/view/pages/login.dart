@@ -14,10 +14,12 @@ class LoginPage extends StatelessWidget {
   //late String model;
 
   late LoginController _controller;
-  late LoginRequest _model;
+  //antes tenia  late LoginRequest _model; pero lo cambie por:
+  late LoginRequest _request;
 
   LoginPage({super.key}){
     _controller = LoginController();
+    _request = LoginRequest();
   }
 
   @override
@@ -75,8 +77,23 @@ class LoginPage extends StatelessWidget {
         ElevatedButton(onPressed: (){
           if(formKey.currentState!.validate()){
             formKey.currentState!.save();
-            //Falta:hacer validacion de user y password en BD
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const PaymentsPage(),));
+            //validacion de user y password en BD
+            try {
+              var nombre=_controller.validarCorreoClave(_request);
+
+
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> 
+            PaymentsPage(correo:_request.correo,nombre:nombre),
+            )
+            );
+            } catch (e) {
+              // showDialog(context: context, builder: (context)=>AlertDialog(
+              //   title:const Text("Error"),
+              //   content: Text(e.toString())));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+            }
+
+            
           }
         }, 
         child: const Text("Iniciar sesion",
@@ -106,7 +123,7 @@ class LoginPage extends StatelessWidget {
             return null;
           },
           onSaved: (value){
-            _model.correo = value!;
+            _request.correo = value!;
           },
         );
 
@@ -131,7 +148,7 @@ class LoginPage extends StatelessWidget {
             return null;
           } ,
           onSaved: (value){
-            _model.clave=value!;
+            _request.clave=value!;
           },
         ); 
   }

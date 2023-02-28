@@ -9,7 +9,7 @@ class CashcPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Cierre caja")),
-        drawer: const DrawerWidget(),
+        drawer: const DrawerWidget(correo: "",nombre: "",),
     )
     ;
   }

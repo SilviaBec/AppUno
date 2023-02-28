@@ -4,14 +4,16 @@ import '../widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class PaymentsPage extends StatelessWidget {
-  const PaymentsPage({super.key});
+  final String correo;
+  final String nombre;
+  const PaymentsPage({super.key, required this.correo, required this.nombre});
 
   @override
   Widget build(BuildContext context) {
     final lista = _listarCobros();
     return Scaffold(
       appBar: AppBar(title:const Text( "Ventas"),),
-      drawer: const DrawerWidget(),
+      drawer: DrawerWidget(correo:correo,nombre:nombre),
       body:Column(children: [
         const Text ("Cobros"),
         Expanded(
