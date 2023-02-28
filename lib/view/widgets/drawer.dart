@@ -62,16 +62,18 @@ class DrawerWidget extends StatelessWidget {
 
         const SizedBox( 
           width: 17,),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-          Text(nombre, style:  const TextStyle(color: Colors.white, fontSize:24),),
-          const SizedBox(
-            height: 9,
-          ),
-          Text(correo, style:  const TextStyle(color: Colors.white),),
-        ],)
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+            Text(nombre, style:  const TextStyle(color: Colors.white, fontSize:24),),
+            const SizedBox(
+              height: 9,
+            ),
+            Text(correo, style:  const TextStyle(color: Colors.white),),
+          ],),
+        )
       ],);
   }
 }
