@@ -1,5 +1,7 @@
 // import 'dart:js';
 
+import 'register.dart';
+
 import '../../controller/login.dart';
 
 import '../../controller/request/login.dart';
@@ -33,7 +35,10 @@ class LoginPage extends StatelessWidget {
           _logo(),
           _form(context),
       
-                  TextButton(onPressed: (){}, child: const Text("Registrarse"),),
+                  TextButton(
+                  onPressed:() {
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=> RegisterPage()));
+                  },child: const Text("Registrarse"),),
                   TextButton(onPressed: (){}, child: const Text("Continuar sin cuenta"),),
                 
           ],),
