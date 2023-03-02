@@ -26,11 +26,13 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var formKey=GlobalKey<FormState>();
     return Scaffold(
+      
+      
       appBar: AppBar(title: const Text("Registro"),),
       body:Form(
         key:formKey,
         child: Padding(
-          padding: const EdgeInsets.all( 8.0),
+          padding: const EdgeInsets.symmetric(vertical:2.0),
           child: SingleChildScrollView(
             child:Column(children: [
               _basicWidget("Nombre", validarCampoRequerido,(newValue) { _datos.nombre = newValue!;}),
@@ -62,7 +64,7 @@ class RegisterPage extends StatelessWidget {
 
   Widget _basicWidget(String title,FormFieldValidator<String?> validate , FormFieldSetter<String?> save){
     return Padding(
-      padding: const EdgeInsets.all(17.0),
+      padding: const EdgeInsets.all(10.0),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         maxLength: 100,
