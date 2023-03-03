@@ -64,7 +64,7 @@ class RegisterPage extends StatelessWidget {
 
   Widget _basicWidget(String title,FormFieldValidator<String?> validate , FormFieldSetter<String?> save){
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(8.0),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         maxLength: 100,
